@@ -114,3 +114,16 @@ button {
 .board__item {
 	padding: 3px 0px 3px 0px;
 }
+
+.error input,
+.error textarea {
+	border: 1px solid red;
+}
+
+.error {
+	color: red;
+}
+
+.error-message {
+	width: 100px;
+}

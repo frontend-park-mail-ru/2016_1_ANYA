@@ -6,14 +6,14 @@
 		<div class="main__name">Signing in</div>
 		<form class="form" name="loginForm">
 			<div class="form__username">
-				<input type="text" class="form__input" placeholder="Username" />
+				<input name="username" type="text" class="login form__input" placeholder="Username"/>
 			</div>
 			<div class="form__password">
-				<input type="password" class="form__input" placeholder="Password" />
+				<input name="password" type="password" class="password form__input" placeholder="Password"/>
 			</div>
 			<div class="buttons">
 				<div class="buttons__button">
-					<button type="submit">Submit</button>
+					<button class="button_submit" type="submit">Submit</button>
 				</div>
 				<div class="buttons__button">
 					<a href="#main">Back</a>
