@@ -1,5 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+	<fest:include src="./base_temp.xml"/>
 	<div class="buttons">
-		<div class="buttons__button"><a href="#main">Go Back</a></div>
+			<div class="buttons__button"><a href="#main">Go Back</a></div>
 	</div>
 </fest:template>

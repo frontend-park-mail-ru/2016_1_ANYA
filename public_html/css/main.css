@@ -19,6 +19,7 @@ body {
 	font-size: 40px;
 	padding: 20px 0px 20px 0px;
 	width: 100%;
+
 }
 
 .main {
@@ -40,7 +41,7 @@ body {
 }
 
 .buttons__button {
-	text-align: center; 
+	text-align: center;
 	font-size: 27px;
 	padding: 7px 0px 5px 0px;
 	border: 7px solid white;
@@ -115,15 +116,20 @@ button {
 	padding: 3px 0px 3px 0px;
 }
 
-.error input,
-.error textarea {
+.form__error input,
+.form__error textarea {
+	display: block;
+}
+
+.form__error {
+	color: red;
+	display: none;
+}
+
+.form__input_error {
 	border: 1px solid red;
 }
 
-.error {
-	color: red;
-}
-
-.error-message {
-	width: 100px;
-}
+.form__error_shown {
+	display: block;
+ }

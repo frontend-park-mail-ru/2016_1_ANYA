@@ -1,39 +1,47 @@
 define([
     'backbone',
     'tmpl/login',
-    'models/login_user_model'
+    'models/session'
 ], function(
     Backbone,
     tmpl,
     LoginUser
 ){
-
     var LoginView = Backbone.View.extend({
 
         tagName: 'div',
 
         events: {
-            "click .button_submit": "validate",
-            //"submit .button_submit": "validate",
-            "submit .login": "validate",
-            "change .login": "changeLogin",
-            "change .password": "changePassword"
+            "submit": "validate"
         },
 
-        
-        showError: function (container, errorMessage) {
-            container.className = 'error';
-            var msgElem = document.createElement('span');
-            msgElem.className = "error-message";
-            msgElem.innerHTML = errorMessage;
-            container.appendChild(msgElem);
+
+        showError: function (container) {
+            container.addClass('form__error_shown');
+            var msgElem = container.children('.form__error');
+            var formElem = container.children('.form__input');
+            msgElem.addClass('form__error_shown');
+            formElem.addClass('form__input_error');
         },
 
         resetError: function (container) {
-            container.className = '';
-            if (container.lastChild.className == "error-message") {
-                container.removeChild(container.lastChild)
-            } 
+            container.removeClass('form__error_shown');
+            var msgElem = container.children('.form__error');
+            var formElem = container.children('.form__input');
+            msgElem.removeClass('form__error_shown');
+            formElem.removeClass('form__input_error');
+        },
+
+        handleErrors: function(model, error) {
+            console.log(error);
+            this.resetError(this.$el.find('.form__username'));
+            this.resetError(this.$el.find('.form__password'));
+            if (error.username) {
+                this.showError(this.$el.find('.form__username'));
+            }
+            if (error.password) {
+                this.showError(this.$el.find('.form__password'));
+            }
         },
 
         validate: function (event) {
@@ -52,23 +60,12 @@ define([
 
         template: tmpl,
         initialize: function () {
-            // TODO
-            
+            this.model = new LoginUser();
+            this.model.on("invalid", this.handleErrors.bind(this));
         },
-        
+
         render: function () {
             this.$el.html(this.template());
-            this.model = new LoginUser();
-            
-            this.model.on("invalid", function(model, error) {
-                if (error.username) {
-                    this.showError(this.elems.username.parentNode, "No username!");
-                }
-                if (error.password) {
-                    this.showError(this.elems.password.parentNode, "No password!");
-                }
-            }.bind(this));
-
             return this;
         },
         show: function () {
@@ -80,7 +77,7 @@ define([
 
     });
 
-    
+
 
     return new LoginView();
 });

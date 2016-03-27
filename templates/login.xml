@@ -1,15 +1,16 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-	<div class="header">
-		<div class="header__appname">BloodyDefense</div>
-	</div>
+	<fest:include src="./base_temp.xml"/>
+
 	<div class="main">
 		<div class="main__name">Signing in</div>
 		<form class="form" name="loginForm">
 			<div class="form__username">
-				<input name="username" type="text" class="login form__input" placeholder="Username"/>
+				<input name="username" type="text" class="form__input" placeholder="Username"/>
+				<span class='form__error'>No login!</span>
 			</div>
 			<div class="form__password">
-				<input name="password" type="password" class="password form__input" placeholder="Password"/>
+				<input name="password" type="password" class="form__input" placeholder="Password"/>
+				<span class='form__error'>No password!</span>
 			</div>
 			<div class="buttons">
 				<div class="buttons__button">
@@ -19,6 +20,8 @@
 					<a href="#main">Back</a>
 				</div>
 			</div>
+
 		</form>
+
 	</div>
 </fest:template>

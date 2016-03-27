@@ -50,7 +50,13 @@ module.exports = function (grunt) {
                     }
                 }
             }
+        },
+
+        
+        qunit: {
+            all: ['./public_html/tests/index.html']        
         }
+
 
     });
 
@@ -62,5 +68,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-fest');
 
     // результат команды grunt
+    grunt.registerTask('test', ['qunit:all']);
     grunt.registerTask('default', ['concurrent:target1']);
 };

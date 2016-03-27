@@ -21,6 +21,7 @@ define(function(require){
             console.log('the #scoreboard route');
             $('#page').html(scoreboardView.render().$el);
         },
+
         gameAction: function () {
             console.log('the #game route');
             $('#page').html(gameView.render().$el);

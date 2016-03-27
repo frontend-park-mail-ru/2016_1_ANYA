@@ -1,7 +1,5 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
-	<div class="header">
-		<div class="header__appname">BloodyDefense</div>
-	</div>
+	<fest:include src="./base_temp.xml"/>
 	<div class="main">
 		<div class="main__name"> Main Menu </div>
 		<div class="board">
