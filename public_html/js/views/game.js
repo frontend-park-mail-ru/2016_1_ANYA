@@ -8,21 +8,24 @@ define([
 
     var GameView = Backbone.View.extend({
 
+        className: 'game-view',
+
         template: tmpl,
+
         initialize: function () {
             // TODO
         },
         render: function () {
-            // TODO
             this.$el.html(this.template());
             return this;
         },
         show: function () {
-            // TODO
+            this.trigger('show');
+            this.$el.show();
         },
         hide: function () {
-            // TODO
-        }
+            this.$el.hide();
+        },
 
     });
 

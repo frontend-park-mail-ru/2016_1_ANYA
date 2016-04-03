@@ -7,8 +7,6 @@ define(function(require) {
                 return -model.score;
             });
 
-        console.info('scores', scores);
-        console.info('scoresSorted', scoresSorted);
         QUnit.ok(_.isEqual(scores, scoresSorted), 'Returned array is sorted');
     });
 });

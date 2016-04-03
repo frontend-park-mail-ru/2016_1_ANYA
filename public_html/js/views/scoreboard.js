@@ -9,7 +9,8 @@ define([
 ){
 
     var ScoresView = Backbone.View.extend({
-        tagName: 'div',
+
+        className: 'scoreboard-view',
 
         template: tmpl,
         initialize: function () {
@@ -24,11 +25,12 @@ define([
             return this;
         },
         show: function () {
-            // TODO
+            this.trigger('show');
+            this.$el.show();
         },
         hide: function () {
-            // TODO
-        }
+            this.$el.hide();
+        },
 
     });
 
