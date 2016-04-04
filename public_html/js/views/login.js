@@ -74,6 +74,8 @@ define([
         },
         hide: function () {
             this.$el.hide();
+            this.resetError(this.$el.find('.form__username'));
+            this.resetError(this.$el.find('.form__password'));
         },
 
     });

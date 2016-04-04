@@ -17,6 +17,7 @@ define([
         },
         render: function () {
             this.$el.html(this.template());
+            require(['./js/game.js']);
             return this;
         },
         show: function () {

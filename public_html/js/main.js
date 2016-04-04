@@ -4,7 +4,8 @@ require.config({
     paths: {
         jquery: "lib/jquery",
         underscore: "lib/underscore",
-        backbone: "lib/backbone"
+        backbone: "lib/backbone",
+        pixi: "lib/pixi"
     },
     shim: {
         'backbone': {
