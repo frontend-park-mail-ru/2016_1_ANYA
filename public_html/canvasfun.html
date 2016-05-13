@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Having fun wuth canvas</title>
+    </head>
+    <body>
+        <center><canvas id="drawstuff" width="800" height="600"></canvas></center>
+        <script type="text/javascript">
+            (function () {
+                'use strict';
+                const canvas = document.querySelector('canvas');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                const context = canvas.getContext('2d');
+                class Ball {
+                    get x() {return this._x};
+                    get y() {return this._y};
+                    get r() {return this._r};
+
+                    constructor(x = 0, y = 0, r = 0) {
+                        this._x = x;
+                        this._y = y;
+                        this._r = r;
+                    }
+
+                    draw(context) {
+                        let currentR = 0;
+                        while (currentR < this.r) {
+                            context.beginPath();
+                            context.arc(this.x, this.y, currentR += 0.2, 0, Math.PI * 2);
+                            context.fillStyle = "#" + Math.floor(Math.random() * 1000000).toString(16);
+                            context.fill();
+                            context.closePath();
+                        }
+                    }
+                }
+
+                function cardioide (a, t) {
+                    return {
+                        x: 2 * a * Math.cos(t) - a * 2 * Math.cos(2 * t) + canvas.width / 2,
+                        y: 2 * a * Math.sin(t) - a * 2 * Math.sin(2 * t) + canvas.height / 2
+                    }
+                }
+
+                function epycicloide(r, k, t) {
+                    return {
+                        x: r * (k + 1) * (Math.cos(t) + Math.cos(t * (k + 1)) / (k + 1)) + canvas.width / 2,
+                        y: r * (k + 1) * (Math.sin(t) + Math.sin(t * (k + 1)) / (k + 1)) + canvas.height / 2
+                    }
+                }
+
+                const r = Math.random() * 100;
+                const k = Math.random() * 3;
+                let i = 0.01;
+                let animationID;
+                function animate() {
+                    const ball = new Ball(epycicloide(r, k, i).x, epycicloide(r, k, i).y, Math.random() * 20);
+                    ball.draw(context);
+                    i += 0.1;
+                    animationID = requestAnimationFrame(animate);
+                }
+                animate();
+            })();
+        </script>
+    </body>
+</html>

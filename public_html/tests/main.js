@@ -1,11 +1,11 @@
-// QUnit.config.autostart = false;
 require.config({
     urlArgs: "_=" + (new Date()).getTime(),
     baseUrl: "../js",
     paths: {
         jquery: "lib/jquery",
         underscore: "lib/underscore",
-        backbone: "lib/backbone"
+        backbone: "lib/backbone",
+        pixi: "lib/pixi"
     },
     shim: {
         'backbone': {

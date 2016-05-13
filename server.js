@@ -23,9 +23,11 @@ app.listen(PORT, function () {
 });
 
 
-app.use('/proxy', proxy('http://vk.com', {
+app.use('/backend/', proxy('http://0.0.0.0:5282', {
+    decorateRequest: function(req) {
+        req.path = '/api' + req.path;
+    },
 	forwardPath: function(req, res) {
-		console.log(1234);
 		return require('url').parse(req.url).path;
 	}
 }));

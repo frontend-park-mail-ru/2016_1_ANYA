@@ -52,9 +52,12 @@ module.exports = function (grunt) {
             }
         },
 
-        
+
         qunit: {
-            all: ['./public_html/tests/index.html']        
+            all: ['./public_html/tests/index.html'],
+            options: {
+                timeout: 30000
+            }
         }
 
 

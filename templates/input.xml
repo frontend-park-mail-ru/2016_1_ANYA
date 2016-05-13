@@ -1,0 +1,8 @@
+<fest:template xmlns:fest="http://fest.mail.ru">
+	<fest:set name="input">
+		<div class="form__{params.field}">
+			<input name="{params.field}" type="{params.field}" class="form__input" placeholder="{params.field}"/>
+			<span class='form__error'> No <fest:space> </fest:space> <fest:value> params.field </fest:value> ! </span>
+		</div>
+	</fest:set>
+</fest:template>

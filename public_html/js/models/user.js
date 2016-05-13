@@ -5,9 +5,9 @@ function (
     Backbone
 ){
 
-    var Session = Backbone.Model.extend({
+    var User = Backbone.Model.extend({
 
-        restResource: 'backend/session',
+        restResource: 'backend/user',
 
         defaults: {
             username: '',
@@ -38,19 +38,17 @@ function (
                 case 'create':
                     this.create(model, model.attributes.username, model.attributes.password);
                     break;
-                case 'update':
-                    model.trigger('invalid', {message: 'You are already logged in!'});
-                    break;
                 case 'delete':
                     this.drop(model);
                     break;
                 default:
-                    console.log(method, model, options);
+                    console.log('whaaa?');
                     break;
             }
         },
 
-        create: function (model, uname, pass) {
+        create: function (model, uname, pass, email) {
+
             var request = new XMLHttpRequest();
 
             request.open('PUT', this.restResource);
@@ -62,34 +60,30 @@ function (
                     switch (this.status) {
                         case 200: {
                             model.set({id: JSON.parse(this.responseText).id});
-                            model.trigger('loggedin');
+                            model.trigger('invalid', {message: 'Successfully registered!'});
                             break;
                         }
-                        case 204: {
-                            model.trigger('invalid', {message: 'No such user!'});
-                            break;
-                        }
-                        case 400: {
-                            model.trigger('invalid', {message: 'Wrong password!'});
+                        case 403: {
+                            model.trigger('invalid', {message: 'Such a user already exists!'});
                             break;
                         }
                         default: {
-                            model.trigger('invalid', {message: 'Unknown error while logging in'});
-                            console.log(this.readyState + ' - ' + this.status + ' returned with "' + this.responseText + '" message');
+                            model.trigger('invalid', {message: 'Unknown error!'});
+                            console.log(this.readyState + '-' + this.status + 'returned with "' + this.responseText + '" message');
                             break;
                         }
                     }
                 }
-
               }).bind(request, model);
 
             var body = {
               'login': uname,
-              'password': pass
+              'password': pass,
+              'email': email
             };
+
             request.send(JSON.stringify(body));
         },
-
 
         edit: function () {
             console.log('this will contain the code to edit user info');
@@ -100,17 +94,5 @@ function (
         }
     });
 
-    var Singletone = (function () {
-        var instance;
-
-        return function Construct_singletone () {
-            if (!instance) {
-                instance = new Session();
-            }
-            return instance;
-        }
-    }());
-
-
-    return Singletone;
+    return User;
 });

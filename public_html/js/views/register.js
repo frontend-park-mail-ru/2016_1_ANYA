@@ -1,15 +1,15 @@
 define([
     'backbone',
     'tmpl/login',
-    'models/session'
+    'models/user'
 ], function(
     Backbone,
     tmpl,
-    Session
+    User
 ){
-    var LoginView = Backbone.View.extend({
+    var RegisterView = Backbone.View.extend({
 
-        className: 'login-view',
+        className: 'register-view',
 
         events: {
             "submit": "validate"
@@ -36,7 +36,6 @@ define([
             }
             for (var field in this.erratives) {
                 if (error[this.erratives[field]]) {
-                    console.log(field);
                     this.showError(this.$('.form__' + this.erratives[field]));
                 }
             }
@@ -50,6 +49,7 @@ define([
                 'username': this.elems.username.value,
                 'password': this.elems.password.value
             }
+
             this.model.save(data);
 
         },
@@ -60,14 +60,13 @@ define([
 
         template: tmpl,
         initialize: function () {
-            this.model = Session();
+            this.model = new User();
             this.listenTo(this.model, 'invalid', this.handleErrors);
-            this.listenTo(this.model, 'loggedin', this.loggedIn);
             this.on('show', this.clearForm);
         },
 
         render: function () {
-            this.$el.html(this.template({register: false}));
+            this.$el.html(this.template({register: true}));
             return this;
         },
         show: function () {
@@ -78,13 +77,7 @@ define([
             this.$el.hide();
             this.resetErrors();
         },
-
-        loggedIn: function () {
-            this.model.trigger('invalid', {message: 'Success!'});
-            //the code after login
-        }
-
     });
 
-    return new LoginView();
+    return new RegisterView();
 });

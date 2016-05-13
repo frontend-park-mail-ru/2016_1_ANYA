@@ -31,12 +31,12 @@ define(function (require) {
 
     QUnit.test('viewManager adds views', function (assert) {
 
-        var gameView = require('views/game'),
+        var registerView = require('views/register'),
             scoreboardView = require('views/scoreboard'),
             viewManager = require('views/viewManager');
 
-        viewManager.addView(gameView);
-        assert.notOk(viewManager.views.length != 2 || viewManager.views[viewManager.views.length - 1] != gameView, 'Second addition ok');
+        viewManager.addView(registerView);
+        assert.notOk(viewManager.views.length != 2 || viewManager.views[viewManager.views.length - 1] != registerView, 'Second addition ok');
 
         viewManager.addView(scoreboardView);
         assert.notOk(viewManager.views.length != 3 || viewManager.views[viewManager.views.length - 1] != scoreboardView, 'Third addition ok');

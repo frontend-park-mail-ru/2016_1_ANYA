@@ -124,6 +124,7 @@ button {
 .form__error {
 	color: red;
 	display: none;
+	font-size: 25px;
 }
 
 .form__input_error {

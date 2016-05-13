@@ -1,21 +1,38 @@
-<fest:template xmlns:fest="http://fest.mail.ru">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
 	<fest:include src="./base_temp.xml"/>
+	<fest:include src="./input.xml"/>
 
 	<div class="main">
-		<div class="main__name">Signing in</div>
+
+		<fest:choose>
+			<fest:when test="json.register">
+					<div class="main__name">Registration</div>
+			</fest:when>
+
+			<fest:otherwise>
+					<div class="main__name">Signing in</div>
+			</fest:otherwise>
+		</fest:choose>
 		<form class="form" name="loginForm">
-			<div class="form__username">
-				<input name="username" type="text" class="form__input" placeholder="Username"/>
-				<span class='form__error'>No login!</span>
+			<div class="form__message">
+				<div class="form__error" id="message"></div>
 			</div>
-			<div class="form__password">
-				<input name="password" type="password" class="form__input" placeholder="Password"/>
-				<span class='form__error'>No password!</span>
-			</div>
+			<fest:get name="input">{field: "username"}</fest:get>
+			<fest:get name="input">{field: "password"}</fest:get>
 			<div class="buttons">
-				<div class="buttons__button">
-					<button type="submit">Submit</button>
-				</div>
+				<fest:choose>
+				    <fest:when test="json.register">
+						<div class="buttons__button">
+							<button type="submit">Register</button>
+						</div>
+				    </fest:when>
+
+				    <fest:otherwise>
+						<div class="buttons__button">
+							<button type="submit">Sign in</button>
+						</div>
+				    </fest:otherwise>
+				</fest:choose>
 				<div class="buttons__button">
 					<a href="#main">Back</a>
 				</div>
