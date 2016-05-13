@@ -1,136 +1,19 @@
+@charset "UTF-8";
 body {
-	margin: 0px;
-}
+  margin: 0px; }
 
 @font-face {
-	font-family: 'Conv_rodchenko';
-	src: url('../fonts/rodchenko.eot');
-	src: local('☺'), url('../fonts/rodchenko.woff') format('woff'), url('../fonts/rodchenko.ttf') format('truetype'), url('../fonts/rodchenko.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-.header {
-	font-family:'Conv_rodchenko', Sans-Serif;
-	background-color: red;
-}
-.header__appname {
-	text-align: center;
-	font-size: 40px;
-	padding: 20px 0px 20px 0px;
-	width: 100%;
-
-}
+  font-family: 'Conv_rodchenko';
+  src: url("../fonts/rodchenko.eot");
+  src: local("☺"), url("../fonts/rodchenko.woff") format("woff"), url("../fonts/rodchenko.ttf") format("truetype"), url("../fonts/rodchenko.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 
 .main {
-	font-family:'Conv_rodchenko', Sans-Serif;
-	width: 100%;
-}
-
-.main__name {
-	text-align: center;
-	vertical-align: middle;
-	font-size: 40px;
-	padding: 20px 0px 20px 0px;
-}
-
-.buttons {
-	font-family:'Conv_rodchenko', Sans-Serif;
-	text-align: center;
-	display: inline;
-}
-
-.buttons__button {
-	text-align: center;
-	font-size: 27px;
-	padding: 7px 0px 5px 0px;
-	border: 7px solid white;
-	border-radius: 15px;
-	width: 100px;
-	margin: auto;
-	background-color: #226666;
-}
-
-a {
-	display: block;
-	text-decoration: none;
-	color: black;
-}
-
-a:visited {
-	display: block;
-	text-decoration: none;
-	color: black;
-}
-
-a:hover {
-	display: block;
-	text-decoration: none;
-	color: black;
-}
-
-button {
-	text-align: center;
-	border-radius: 15px;
-	width: 100px;
-	background-color: #226666;
-	border: none;
-	font-family:'Conv_rodchenko', Sans-Serif;
-	font-size: 27px;
-}
-
-.form {
-	display: inline;
-	text-align: center;
-	width: 100%;
-}
-
-.form__input {
-	padding: 5px;
-	font-size: 28px;
-	border-radius: 5px;
-	font-family: 'Conv_rodchenko';
-}
-
-.form__username {
-	padding: 5px;
-}
-
-.form__password {
-	padding: 5px;
-}
-
-.board {
-	text-align: center;
-	padding: 0px;
-}
-
-.board__list {
-	text-align: center;
-	font-size: 20px;
-	padding: 0px;
-	list-style-position:inside;
-}
-
-.board__item {
-	padding: 3px 0px 3px 0px;
-}
-
-.form__error input,
-.form__error textarea {
-	display: block;
-}
-
-.form__error {
-	color: red;
-	display: none;
-	font-size: 25px;
-}
-
-.form__input_error {
-	border: 1px solid red;
-}
-
-.form__error_shown {
-	display: block;
- }
+  font-family: 'Conv_rodchenko', Sans-Serif;
+  width: 100%; }
+  .main__name {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40px;
+    padding: 20px 0px 20px 0px; }

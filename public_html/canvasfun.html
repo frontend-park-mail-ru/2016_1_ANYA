@@ -53,13 +53,17 @@
                 const r = Math.random() * 100;
                 const k = Math.random() * 3;
                 let i = 0.01;
+                let it = 1;
                 let animationID;
+                let balls = [];
                 function animate() {
-                    const ball = new Ball(epycicloide(r, k, i).x, epycicloide(r, k, i).y, Math.random() * 20);
-                    ball.draw(context);
+                    balls[it] = new Ball(epycicloide(r, k, i).x, epycicloide(r, k, i).y, Math.random() * 20);
+                    balls[it].draw(context);
+                    delete balls[it++];
                     i += 0.1;
                     animationID = requestAnimationFrame(animate);
                 }
+                delete balls;
                 animate();
             })();
         </script>

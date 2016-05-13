@@ -1,0 +1,23 @@
+body {
+  margin: 0px;
+}
+
+@font-face {
+  font-family: 'Conv_rodchenko';
+  src: url('../fonts/rodchenko.eot');
+  src: local("☺"), url('../fonts/rodchenko.woff') format("woff"), url('../fonts/rodchenko.ttf') format("truetype"), url('../fonts/rodchenko.svg') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.main {
+  font-family: 'Conv_rodchenko', Sans-Serif;
+  width: 100%;
+&__name {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 40px;
+  padding: 20px 0px 20px 0px;
+}
+}

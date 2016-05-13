@@ -33,37 +33,10 @@ define([
         },
 
         game: function() {
-            function throttle(fn, threshhold, scope) {
-                if (!threshhold) {
-                    threshhold = 250;
-                }
-                if (!scope) {
-                    scope = this;
-                }
-                var last,
-                    deferTimer;
-                return function () {
-                    var context = scope;
-
-                    var now = +new Date,
-                    args = arguments;
-                    if (last && now < last + threshhold) {
-                        // hold on to it
-                        clearTimeout(deferTimer);
-                        deferTimer = setTimeout(function () {
-                            last = now;
-                            fn.apply(context, args);
-                        }, threshhold);
-                    } else {
-                        last = now;
-                        fn.apply(context, args);
-                    }
-                };
-            }
-
-            this.$el.find('#resetGame').on('click', this.play.bind(this, this.$el));
 
             var renderer = PIXI.autoDetectRenderer($(window).width() * 0.8, $(window).height() * 0.7, {view: this.$el.find('#game-canvas').get(0)});
+
+            this.$el.find('.js__playagain').on('click', this.play.bind(this, this.$el, renderer));
 
             this.play(this.$el, renderer);
         },

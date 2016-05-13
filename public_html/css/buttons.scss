@@ -1,0 +1,36 @@
+a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  &:visited, &:hover {
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+}
+
+button {
+  text-align: center;
+  border-radius: 15px;
+  width: 100px;
+  background-color: #226666;
+  border: none;
+  font-family: 'Conv_rodchenko', Sans-Serif;
+  font-size: 27px;
+}
+
+.buttons {
+  font-family: 'Conv_rodchenko', Sans-Serif;
+  text-align: center;
+  display: inline;
+  &__button {
+    text-align: center;
+    font-size: 27px;
+    padding: 7px 0px 5px 0px;
+    border: 7px solid white;
+    border-radius: 15px;
+    width: 100px;
+    margin: auto;
+    background-color: #226666;
+  }
+}

@@ -5,6 +5,6 @@
 	</div>
 	<div class="buttons">
 			<div class="buttons__button"><a href="#main">Go Back</a></div>
-			<div class="buttons__button" id="resetGame"><a href="#game">ЗАНОВО</a></div>
+			<div class="buttons__button js__playagain"><a href="#game">ЗАНОВО</a></div>
 	</div>
 </fest:template>

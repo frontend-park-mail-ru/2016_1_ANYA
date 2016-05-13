@@ -1,0 +1,13 @@
+.board {
+  text-align: center;
+  padding: 0px;
+  &__list {
+    text-align: center;
+    font-size: 20px;
+    padding: 0px;
+    list-style-position: inside;
+  }
+  &__item {
+    padding: 3px 0px 3px 0px;
+  }
+}

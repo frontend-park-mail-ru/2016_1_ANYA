@@ -1,0 +1,30 @@
+.form {
+  display: inline;
+  text-align: center;
+  width: 100%;
+
+&__input {
+  padding: 5px;
+  font-size: 28px;
+  border-radius: 5px;
+  font-family: 'Conv_rodchenko';
+  &_error {
+    border: 1px solid red;
+  }
+}
+
+&__username, &__password {
+  padding: 5px;
+}
+
+&__error {
+  input, textarea {
+    display: block;
+  }
+  color: red;
+  display: none;
+  font-size: 25px;
+  &_shown {
+    display: block;
+  }
+}}
